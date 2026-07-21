@@ -85,7 +85,7 @@
     /* ============================================================
        NAVIGATION
     ============================================================ */
-    nav {
+    #nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 500;
       display: flex; align-items: center; justify-content: space-between;
       padding: 0.9rem 2.5rem;
@@ -95,7 +95,7 @@
       border-bottom: 1px solid var(--border);
       transition: padding 0.5s var(--ease), background 0.5s var(--ease);
     }
-    nav.scrolled {
+    #nav.scrolled {
       padding: 0.65rem 2.5rem;
       background: rgba(10, 10, 15, 0.94);
     }
@@ -680,8 +680,8 @@
     }
 
     @media (max-width: 768px) {
-      nav { padding: 0.85rem 1.25rem; }
-      nav.scrolled { padding: 0.65rem 1.25rem; }
+      #nav { padding: 0.85rem 1.25rem; }
+      #nav.scrolled { padding: 0.65rem 1.25rem; }
       .nav-links, .nav-right { display: none; }
       .hamburger { display: flex; }
 
