@@ -706,6 +706,464 @@
       .hero-btns { flex-direction: column; align-items: flex-start; }
       .btn-hero { width: 100%; justify-content: center; }
     }
+
+    /* ============================================================
+       MEDIA PLACEHOLDERS (ready to receive gif/video files)
+    ============================================================ */
+    .news-media-slot,
+    .service-icon-slot,
+    .partner-media-slot {
+      background: rgba(10, 132, 255, 0.08);
+      border: 2px dashed rgba(10, 132, 255, 0.3);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(10, 132, 255, 0.5);
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-family: var(--font-display);
+    }
+    .news-media-slot { height: 280px; width: 100%; }
+    .service-icon-slot { width: 120px; height: 120px; margin-bottom: 1.5rem; }
+    .partner-media-slot {
+      height: 200px;
+      width: 100%;
+      background: linear-gradient(135deg, rgba(10, 132, 255, 0.14) 0%, rgba(10, 132, 255, 0.04) 100%);
+    }
+
+    /* ============================================================
+       NAV MEGA-MENU
+    ============================================================ */
+    .nav-mega-wrap { position: relative; }
+    .nav-mega-trigger {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      background: none; border: none;
+      color: var(--text-2);
+      font-family: var(--font);
+      font-size: 0.82rem; font-weight: 500;
+      letter-spacing: 0.01em;
+      cursor: pointer;
+      padding: 0;
+      transition: color 0.22s;
+    }
+    .nav-mega-trigger:hover,
+    .nav-mega-trigger[aria-expanded="true"] { color: var(--text-1); }
+    .nav-mega-trigger svg { transition: transform 0.3s var(--ease); }
+    .nav-mega-trigger[aria-expanded="true"] svg { transform: rotate(180deg); }
+
+    .nav-mega {
+      position: fixed;
+      left: 50%; top: 74px;
+      transform: translateX(-50%) translateY(-8px);
+      min-width: 920px;
+      max-width: 95vw;
+      background: rgba(10, 10, 15, 0.94);
+      backdrop-filter: blur(28px) saturate(180%);
+      -webkit-backdrop-filter: blur(28px) saturate(180%);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 2.25rem 2.5rem;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 2.75rem;
+      box-shadow: 0 20px 60px -12px rgba(0, 0, 0, 0.55);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.28s var(--ease), transform 0.28s var(--ease);
+      z-index: 480;
+    }
+    .nav-mega.open {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateX(-50%) translateY(0);
+    }
+    .nav-mega-col { display: flex; flex-direction: column; gap: 0.75rem; }
+    .nav-mega-hd {
+      font-family: var(--font-display);
+      font-size: 0.66rem; font-weight: 800;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.45rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-mega-link {
+      color: var(--text-1);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      line-height: 1.35;
+      transition: color 0.2s, transform 0.2s;
+      display: block;
+    }
+    .nav-mega-link:hover { color: var(--accent); transform: translateX(4px); }
+    .nav-mega-link.muted { color: var(--text-2); font-size: 0.85rem; }
+
+    /* ============================================================
+       NEWS SECTION — ЧТО ПРОИСХОДИТ
+    ============================================================ */
+    .news { background: var(--bg); }
+    .news-header { margin-bottom: 3.5rem; }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1.15rem;
+    }
+
+    .news-card {
+      display: flex; flex-direction: column;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.35s var(--ease), transform 0.35s var(--ease);
+    }
+    .news-card:hover {
+      border-color: var(--border-acc);
+      transform: translateY(-4px);
+    }
+    .news-media-wrap { position: relative; overflow: hidden; }
+    .news-media-wrap .news-media-slot { border-radius: 0; border-left: 0; border-right: 0; border-top: 0; }
+    .news-play {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: rgba(10, 132, 255, 0.85);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 2;
+      backdrop-filter: blur(8px);
+      transition: transform 0.3s var(--ease), background 0.3s;
+      pointer-events: none;
+      box-shadow: 0 8px 24px rgba(10, 132, 255, 0.35);
+    }
+    .news-card:hover .news-play {
+      transform: translate(-50%, -50%) scale(1.1);
+      background: var(--accent);
+    }
+    .news-play svg { width: 20px; height: 20px; fill: #fff; margin-left: 3px; }
+
+    .news-body {
+      padding: 1.5rem 1.35rem 1.4rem;
+      display: flex; flex-direction: column;
+      gap: 0.7rem; flex: 1;
+    }
+    .news-title {
+      font-family: var(--font-display);
+      font-size: 0.92rem; font-weight: 800;
+      line-height: 1.25;
+      text-transform: uppercase;
+      color: var(--text-1);
+      letter-spacing: -0.005em;
+    }
+    .news-desc {
+      font-size: 0.82rem;
+      color: var(--text-2);
+      line-height: 1.55;
+      flex: 1;
+    }
+    .news-more {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      color: var(--accent);
+      font-size: 0.72rem; font-weight: 800;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      text-decoration: none;
+      margin-top: 0.35rem;
+      transition: gap 0.2s;
+    }
+    .news-more:hover { gap: 0.7rem; }
+
+    .news-cta { display: flex; justify-content: center; margin-top: 3rem; }
+
+    /* ============================================================
+       PROMO — ПРОДВИЖЕНИЕ ВАШИХ РАЗРАБОТОК
+    ============================================================ */
+    .promo { background: var(--bg-deep); overflow: hidden; }
+
+    .promo-grid {
+      display: grid;
+      grid-template-columns: 1fr 0.9fr 1.25fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .promo-left { position: relative; padding-left: 1.75rem; }
+    .promo-accent-bar {
+      position: absolute;
+      left: 0; top: 0.5rem;
+      width: 4px; height: 100px;
+      background: var(--accent);
+      border-radius: 2px;
+      box-shadow: 0 0 26px rgba(10, 132, 255, 0.55);
+    }
+    .promo-hd {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -0.025em;
+      line-height: 1.05;
+      color: var(--text-1);
+      margin-bottom: 1.25rem;
+    }
+    .promo-sub {
+      color: var(--text-2);
+      font-size: 0.95rem;
+      line-height: 1.65;
+      margin-bottom: 1.85rem;
+      max-width: 34ch;
+    }
+
+    .promo-center {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 320px;
+    }
+    .promo-logo {
+      width: 100%; max-width: 260px;
+      height: auto;
+      position: relative;
+      z-index: 2;
+      animation: promoFloat 6s ease-in-out infinite;
+    }
+    @keyframes promoFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+    .promo-glow {
+      position: absolute;
+      inset: 10% 10%;
+      border-radius: 50%;
+      background: radial-gradient(circle at center, rgba(10, 132, 255, 0.45) 0%, transparent 60%);
+      filter: blur(48px);
+      animation: promoGlow 4.5s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes promoGlow {
+      0%, 100% { opacity: 0.55; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.18); }
+    }
+
+    .promo-steps {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+    .promo-step {
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 1.4rem 1.4rem 1.55rem;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .promo-step:hover {
+      border-color: var(--border-acc);
+      transform: translateY(-3px);
+    }
+    .promo-step-num {
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      margin-bottom: 0.8rem;
+      display: inline-flex; align-items: center; gap: 0.55rem;
+    }
+    .promo-step-num::before {
+      content: '';
+      width: 18px; height: 1px;
+      background: var(--accent);
+      display: block;
+    }
+    .promo-step-title {
+      font-family: var(--font-display);
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--text-1);
+      margin-bottom: 0.55rem;
+      line-height: 1.3;
+    }
+    .promo-step-desc {
+      font-size: 0.82rem;
+      color: var(--text-2);
+      line-height: 1.55;
+    }
+
+    /* ============================================================
+       PARTNER CASES — КЕЙСЫ, ТЕХНОЛОГИИ, УСЛУГИ
+    ============================================================ */
+    .cases { background: var(--bg); }
+    .cases-header { margin-bottom: 3.5rem; }
+
+    .cases-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .case-card {
+      display: flex; flex-direction: column;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      overflow: hidden;
+      transition: border-color 0.35s var(--ease), transform 0.35s var(--ease);
+    }
+    .case-card:hover {
+      border-color: var(--border-acc);
+      transform: translateY(-4px);
+    }
+    .case-media-wrap { position: relative; }
+    .case-media-wrap .partner-media-slot {
+      border-radius: 0; border-left: 0; border-right: 0; border-top: 0;
+    }
+    .case-body {
+      padding: 1.75rem 1.6rem;
+      display: flex; flex-direction: column;
+      gap: 0.85rem;
+      flex: 1;
+    }
+    .case-name {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--text-1);
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      line-height: 1.1;
+    }
+    .case-logo {
+      align-self: flex-start;
+      padding: 0.35rem 0.75rem;
+      background: var(--accent-dim);
+      border: 1px solid var(--border-acc);
+      border-radius: var(--r-sm);
+      font-size: 0.66rem;
+      font-weight: 800;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .case-desc {
+      font-size: 0.87rem;
+      color: var(--text-2);
+      line-height: 1.65;
+      flex: 1;
+      margin-top: 0.15rem;
+    }
+    .case-btn {
+      align-self: flex-start;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.7rem 1.3rem;
+      margin-top: 0.5rem;
+      background: transparent;
+      border: 1px solid var(--border-acc);
+      border-radius: var(--r-sm);
+      color: var(--accent);
+      font-family: var(--font); font-weight: 700; font-size: 0.72rem;
+      letter-spacing: 0.07em; text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.22s, color 0.22s, transform 0.15s;
+    }
+    .case-btn:hover { background: var(--accent); color: #fff; }
+    .case-btn:active { transform: scale(0.97); }
+
+    /* ============================================================
+       GPU / SERVERS SECTION
+    ============================================================ */
+    .gpu { background: var(--bg-deep); }
+    .gpu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .gpu-left .s-heading { margin-bottom: 1.25rem; }
+    .gpu-desc {
+      color: var(--text-2);
+      font-size: 1rem;
+      line-height: 1.7;
+      max-width: 42ch;
+      margin-bottom: 2rem;
+    }
+    .gpu-features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+    .gpu-feature {
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 1.75rem 1.5rem;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .gpu-feature:hover {
+      border-color: var(--border-acc);
+      transform: translateY(-3px);
+    }
+    .gpu-feature-icon {
+      width: 42px; height: 42px; border-radius: 11px;
+      background: var(--accent-dim);
+      border: 1px solid var(--border-acc);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--accent);
+      margin-bottom: 1.1rem;
+    }
+    .gpu-feature-icon svg { width: 18px; height: 18px; stroke-width: 1.6; }
+    .gpu-feature-title {
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--text-1);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 0.55rem;
+    }
+    .gpu-feature-desc {
+      font-size: 0.83rem;
+      color: var(--text-2);
+      line-height: 1.6;
+    }
+
+    /* ============================================================
+       RESPONSIVE — NEW SECTIONS
+    ============================================================ */
+    @media (max-width: 1200px) {
+      .news-grid { grid-template-columns: repeat(3, 1fr); }
+      .nav-mega { min-width: 780px; grid-template-columns: 1.6fr 1fr 1fr; }
+    }
+    @media (max-width: 1024px) {
+      .news-grid { grid-template-columns: repeat(2, 1fr); }
+      .promo-grid { grid-template-columns: 1fr; text-align: left; }
+      .promo-left { padding-left: 1.75rem; }
+      .promo-center { min-height: 260px; }
+      .promo-steps { grid-template-columns: repeat(2, 1fr); }
+      .cases-grid { grid-template-columns: repeat(2, 1fr); }
+      .gpu-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .nav-mega {
+        min-width: 640px;
+        grid-template-columns: 1.4fr 1fr 1fr;
+        padding: 1.75rem 2rem;
+        gap: 2rem;
+      }
+    }
+    @media (max-width: 768px) {
+      .news-grid { grid-template-columns: 1fr; }
+      .promo-steps { grid-template-columns: 1fr; }
+      .cases-grid { grid-template-columns: 1fr; }
+      .gpu-features { grid-template-columns: 1fr; }
+      .news-media-slot { height: 220px; }
+      .partner-media-slot { height: 180px; }
+      .nav-mega, .nav-mega-wrap { display: none; }
+    }
   </style>
 </head>
 <body>
@@ -729,11 +1187,24 @@
   </a>
 
   <div class="nav-links" role="menubar">
-    <a href="#certificates" class="nav-link" role="menuitem">Сертификаты</a>
-    <a href="#projects"     class="nav-link" role="menuitem">Проекты</a>
-    <a href="#offers"       class="nav-link" role="menuitem">Предложения</a>
-    <a href="#news"         class="nav-link" role="menuitem">Новости</a>
-    <a href="#contacts"     class="nav-link" role="menuitem">Контакты</a>
+    <div class="nav-mega-wrap">
+      <button
+        type="button"
+        class="nav-mega-trigger"
+        id="megaTrigger"
+        aria-expanded="false"
+        aria-haspopup="true"
+        aria-controls="navMega"
+      >
+        Разработки и предложения
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6 9l6 6 6-6"/>
+        </svg>
+      </button>
+    </div>
+    <a href="#news"     class="nav-link" role="menuitem">Новости</a>
+    <a href="#partners" class="nav-link" role="menuitem">Партнёры</a>
+    <a href="#contacts" class="nav-link" role="menuitem">Контакты</a>
   </div>
 
   <div class="nav-right">
@@ -745,6 +1216,26 @@
     <span></span><span></span><span></span>
   </button>
 </nav>
+
+<!-- MEGA-MENU DROPDOWN -->
+<div class="nav-mega" id="navMega" role="menu" aria-labelledby="megaTrigger">
+  <div class="nav-mega-col">
+    <div class="nav-mega-hd">Разработки и предложения</div>
+    <a href="#services" class="nav-mega-link" role="menuitem">Автоматизация и управление бизнесом</a>
+    <a href="#services" class="nav-mega-link" role="menuitem">Люди и Цифровое государство</a>
+    <a href="#services" class="nav-mega-link" role="menuitem">Решения для ИТ-инфраструктуры</a>
+    <a href="#promo"    class="nav-mega-link" role="menuitem">Продвижение ваших разработок</a>
+  </div>
+  <div class="nav-mega-col">
+    <div class="nav-mega-hd">Новости и события</div>
+    <a href="#news" class="nav-mega-link" role="menuitem">Что происходит</a>
+  </div>
+  <div class="nav-mega-col">
+    <div class="nav-mega-hd">О нашей компании</div>
+    <a href="#certificates"    class="nav-mega-link" role="menuitem">Сертификаты</a>
+    <a href="tel:88005055596"  class="nav-mega-link muted" role="menuitem">8-800-505-55-96</a>
+  </div>
+</div>
 
 <!-- ================================================================
      MAIN
@@ -795,6 +1286,148 @@
 
     <div class="scroll-ind" aria-hidden="true">
       <div class="scroll-ind-line"></div>
+    </div>
+  </section>
+
+  <!-- ─── NEWS ─────────────────────────────────────────────────── -->
+  <section class="news" id="news" aria-labelledby="news-heading">
+    <div class="container">
+      <div class="news-header">
+        <div class="s-eyebrow reveal">Новости и события</div>
+        <h2 class="s-heading reveal d1" id="news-heading">Что происходит</h2>
+      </div>
+
+      <div class="news-grid">
+
+        <article class="news-card reveal">
+          <div class="news-media-wrap">
+            <div class="news-media-slot">[ Медиа ]</div>
+            <div class="news-play" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+          <div class="news-body">
+            <h3 class="news-title">Системко на ПМЮФ-2026</h3>
+            <p class="news-desc">Представили aiXpert на XIV Петербургском международном юридическом форуме</p>
+            <a href="#" class="news-more">Смотреть →</a>
+          </div>
+        </article>
+
+        <article class="news-card reveal d1">
+          <div class="news-media-wrap">
+            <div class="news-media-slot">[ Медиа ]</div>
+            <div class="news-play" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+          <div class="news-body">
+            <h3 class="news-title">Международный IT-форум с БРИКС и ФОС</h3>
+            <p class="news-desc">СИСТЕМКО представила ИИ-решение на XVI Международном IT-Форуме</p>
+            <a href="#" class="news-more">Смотреть →</a>
+          </div>
+        </article>
+
+        <article class="news-card reveal d2">
+          <div class="news-media-wrap">
+            <div class="news-media-slot">[ Медиа ]</div>
+            <div class="news-play" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+          <div class="news-body">
+            <h3 class="news-title">Конференция МВД России</h3>
+            <p class="news-desc">«СИСТЕМКО» представила ИИ-решение и платформу безопасности на конференции МВД России</p>
+            <a href="#" class="news-more">Смотреть →</a>
+          </div>
+        </article>
+
+        <article class="news-card reveal d3">
+          <div class="news-media-wrap">
+            <div class="news-media-slot">[ Медиа ]</div>
+            <div class="news-play" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+          <div class="news-body">
+            <h3 class="news-title">Партнёрство с АО Атомдата-Интеграция</h3>
+            <p class="news-desc">Компания «СИСТЕМКО» заключила партнёрское соглашение с АО «Атомдата-Интеграция», входящим в контур Госкорпорации «Росатом»</p>
+            <a href="#" class="news-more">Смотреть →</a>
+          </div>
+        </article>
+
+        <article class="news-card reveal d4">
+          <div class="news-media-wrap">
+            <div class="news-media-slot">[ Медиа ]</div>
+            <div class="news-play" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+          <div class="news-body">
+            <h3 class="news-title">Системко | aiXpert — победители премии «Время цифры» 2026</h3>
+            <p class="news-desc">Мы стали победителем в номинации: Лучшее решение с использованием искусственного интеллекта</p>
+            <a href="#" class="news-more">Смотреть →</a>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="news-cta reveal">
+        <a href="#" class="btn btn-accent btn-hero">
+          Все новости
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PROMO — ПРОДВИЖЕНИЕ ВАШИХ РАЗРАБОТОК ───────────────────── -->
+  <section class="promo" id="promo" aria-labelledby="promo-heading">
+    <div class="container">
+      <div class="promo-grid">
+
+        <div class="promo-left reveal">
+          <div class="promo-accent-bar" aria-hidden="true"></div>
+          <h2 class="promo-hd" id="promo-heading">Продвижение<br>ваших разработок</h2>
+          <p class="promo-sub">СИСТЕМКО — альтернатива традиционным каналам продаж без затрат на офис</p>
+          <a href="#contacts" class="btn btn-accent btn-hero">
+            Узнать больше
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+
+        <div class="promo-center reveal d1" aria-hidden="true">
+          <div class="promo-glow"></div>
+          <img src="logo3d.png" alt="" class="promo-logo">
+        </div>
+
+        <div class="promo-steps reveal d2">
+          <div class="promo-step">
+            <div class="promo-step-num">01</div>
+            <h3 class="promo-step-title">Анализируем ваше предложение</h3>
+            <p class="promo-step-desc">Исследуем рынки и конкурентную среду</p>
+          </div>
+          <div class="promo-step">
+            <div class="promo-step-num">02</div>
+            <h3 class="promo-step-title">Связываем с ключевыми игроками</h3>
+            <p class="promo-step-desc">Согласовываем перечень ключевых заказчиков</p>
+          </div>
+          <div class="promo-step">
+            <div class="promo-step-num">03</div>
+            <h3 class="promo-step-title">Подписываем с вами договор</h3>
+            <p class="promo-step-desc">Договор фиксирует исходные технические требования</p>
+          </div>
+          <div class="promo-step">
+            <div class="promo-step-num">04</div>
+            <h3 class="promo-step-title">Сопровождаем на всех этапах</h3>
+            <p class="promo-step-desc">Предоставляем комплексную поддержку</p>
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
 
@@ -954,6 +1587,168 @@
         <div class="partner-pill" aria-hidden="true"><span class="partner-pip"></span>LWO</div>
         <div class="partner-pill" aria-hidden="true"><span class="partner-pip"></span>YADRO</div>
         <div class="partner-pill" aria-hidden="true"><span class="partner-pip"></span>РЕД СОФТ</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PARTNER CASES — КЕЙСЫ, ТЕХНОЛОГИИ, УСЛУГИ ──────────────── -->
+  <section class="cases" id="cases" aria-labelledby="cases-heading">
+    <div class="container">
+      <div class="cases-header">
+        <div class="s-eyebrow reveal">Кейсы, технологии, услуги</div>
+        <h2 class="s-heading reveal d1" id="cases-heading">Разработки наших партнёров</h2>
+      </div>
+
+      <div class="cases-grid">
+
+        <article class="case-card reveal">
+          <div class="case-media-wrap">
+            <div class="partner-media-slot">[ Медиа ]</div>
+          </div>
+          <div class="case-body">
+            <div class="case-name">VK Tech</div>
+            <span class="case-logo">Логотип</span>
+            <p class="case-desc">Комплексные корпоративные сервисы для управления коммуникациями, задачами и данными внутри крупных организаций.</p>
+            <a href="#" class="case-btn">Подробнее →</a>
+          </div>
+        </article>
+
+        <article class="case-card reveal d1">
+          <div class="case-media-wrap">
+            <div class="partner-media-slot">[ Медиа ]</div>
+          </div>
+          <div class="case-body">
+            <div class="case-name">Qtech</div>
+            <span class="case-logo">Логотип</span>
+            <p class="case-desc">Российский производитель сетевого оборудования и телекоммуникационных решений корпоративного класса.</p>
+            <a href="#" class="case-btn">Подробнее →</a>
+          </div>
+        </article>
+
+        <article class="case-card reveal d2">
+          <div class="case-media-wrap">
+            <div class="partner-media-slot">[ Медиа ]</div>
+          </div>
+          <div class="case-body">
+            <div class="case-name">САТЕЛ</div>
+            <span class="case-logo">Логотип</span>
+            <p class="case-desc">Разработка и внедрение телекоммуникационных платформ и систем связи для государственного сектора и крупного бизнеса.</p>
+            <a href="#" class="case-btn">Подробнее →</a>
+          </div>
+        </article>
+
+        <article class="case-card reveal">
+          <div class="case-media-wrap">
+            <div class="partner-media-slot">[ Медиа ]</div>
+          </div>
+          <div class="case-body">
+            <div class="case-name">Tantor</div>
+            <span class="case-logo">Логотип</span>
+            <p class="case-desc">Российская СУБД корпоративного уровня на базе PostgreSQL с расширенными инструментами администрирования и мониторинга.</p>
+            <a href="#" class="case-btn">Подробнее →</a>
+          </div>
+        </article>
+
+        <article class="case-card reveal d1">
+          <div class="case-media-wrap">
+            <div class="partner-media-slot">[ Медиа ]</div>
+          </div>
+          <div class="case-body">
+            <div class="case-name">P7-Офис</div>
+            <span class="case-logo">Логотип</span>
+            <p class="case-desc">Полнофункциональный офисный пакет с редакторами документов, таблиц, презентаций и корпоративным облаком.</p>
+            <a href="#" class="case-btn">Подробнее →</a>
+          </div>
+        </article>
+
+        <article class="case-card reveal d2">
+          <div class="case-media-wrap">
+            <div class="partner-media-slot">[ Медиа ]</div>
+          </div>
+          <div class="case-body">
+            <div class="case-name">LWO</div>
+            <span class="case-logo">Логотип</span>
+            <p class="case-desc">Разработка специализированных решений для автоматизации производственных процессов и промышленного IoT.</p>
+            <a href="#" class="case-btn">Подробнее →</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── GPU / SERVERS ─────────────────────────────────────────── -->
+  <section class="gpu" id="gpu" aria-labelledby="gpu-heading">
+    <div class="container">
+      <div class="gpu-grid">
+
+        <div class="gpu-left reveal">
+          <div class="s-eyebrow">Техническая поддержка</div>
+          <h2 class="s-heading" id="gpu-heading">Техническая<br>поддержка и поставка GPU</h2>
+          <p class="gpu-desc">Полный цикл поддержки ЦОД и поставка серверных решений для высокопроизводительных вычислений</p>
+          <a href="#news" class="btn btn-accent btn-hero">
+            Ссылка на новость
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+
+        <div class="gpu-features">
+
+          <div class="gpu-feature reveal d1">
+            <div class="gpu-feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </div>
+            <div class="gpu-feature-title">Постоянная поддержка</div>
+            <p class="gpu-feature-desc">Полный цикл поддержки, включая мониторинг, управление и техническое обслуживание</p>
+          </div>
+
+          <div class="gpu-feature reveal d2">
+            <div class="gpu-feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <rect x="4" y="4" width="16" height="16" rx="2"/>
+                <rect x="9" y="9" width="6" height="6"/>
+                <line x1="9" y1="1" x2="9" y2="4"/>
+                <line x1="15" y1="1" x2="15" y2="4"/>
+                <line x1="9" y1="20" x2="9" y2="23"/>
+                <line x1="15" y1="20" x2="15" y2="23"/>
+                <line x1="20" y1="9" x2="23" y2="9"/>
+                <line x1="20" y1="15" x2="23" y2="15"/>
+                <line x1="1" y1="9" x2="4" y2="9"/>
+                <line x1="1" y1="15" x2="4" y2="15"/>
+              </svg>
+            </div>
+            <div class="gpu-feature-title">Технологии будущего</div>
+            <p class="gpu-feature-desc">Серверные решения с передовыми GPU для задач ИИ, анализа данных и моделирования</p>
+          </div>
+
+          <div class="gpu-feature reveal d3">
+            <div class="gpu-feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 21h18M5 21V7l7-4 7 4v14"/>
+                <path d="M9 9v12M15 9v12M9 13h6"/>
+              </svg>
+            </div>
+            <div class="gpu-feature-title">Релевантная архитектура</div>
+            <p class="gpu-feature-desc">Гибкие решения для снижения эксплуатационных затрат</p>
+          </div>
+
+          <div class="gpu-feature reveal d4">
+            <div class="gpu-feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 3v18h18"/>
+                <path d="M7 15l4-4 3 3 5-6"/>
+              </svg>
+            </div>
+            <div class="gpu-feature-title">Данные и анализ</div>
+            <p class="gpu-feature-desc">Круглосуточный контроль параметров оборудования и устранение инцидентов</p>
+          </div>
+
+        </div>
       </div>
     </div>
   </section>
@@ -1302,6 +2097,49 @@
       menu.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
     });
+  });
+})();
+
+/* ============================================================
+   NAV MEGA-MENU — hover/click toggle
+============================================================ */
+(function () {
+  const trigger = document.getElementById('megaTrigger');
+  const mega    = document.getElementById('navMega');
+  const wrap    = trigger && trigger.closest('.nav-mega-wrap');
+  if (!trigger || !mega || !wrap) return;
+
+  let hoverTimer;
+  const open  = () => {
+    mega.classList.add('open');
+    trigger.setAttribute('aria-expanded', 'true');
+  };
+  const close = () => {
+    mega.classList.remove('open');
+    trigger.setAttribute('aria-expanded', 'false');
+  };
+  const scheduleClose = () => {
+    clearTimeout(hoverTimer);
+    hoverTimer = setTimeout(close, 180);
+  };
+  const cancelClose = () => clearTimeout(hoverTimer);
+
+  wrap.addEventListener('mouseenter', () => { cancelClose(); open(); });
+  wrap.addEventListener('mouseleave', scheduleClose);
+  mega.addEventListener('mouseenter', cancelClose);
+  mega.addEventListener('mouseleave', scheduleClose);
+
+  trigger.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (mega.classList.contains('open')) close();
+    else open();
+  });
+
+  // Close on link click / Escape / outside click
+  mega.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+  document.addEventListener('click', (e) => {
+    if (!mega.contains(e.target) && !wrap.contains(e.target)) close();
   });
 })();
 

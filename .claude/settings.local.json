@@ -11,7 +11,10 @@
       "PowerShell(dotnet tool install *)",
       "PowerShell(Start-Sleep -Seconds 2; try { $r = Invoke-WebRequest -Uri \"http://localhost:3000/\" -UseBasicParsing -TimeoutSec 5; $r.StatusCode } catch { $_.Exception.Message })",
       "PowerShell($r = Invoke-WebRequest -Uri \"http://localhost:3000/\" -UseBasicParsing; $r.Content.Length; $r.Content.Substring\\(0,200\\))",
-      "PowerShell($r = Invoke-WebRequest -Uri \"http://localhost:3000/\" -UseBasicParsing; \"Status: $\\($r.StatusCode\\)\"; \"Size: $\\($r.Content.Length\\) bytes\"; if \\($r.Content -match 'sampleLuma'\\) { 'OK — brightness detection code present' } else { 'MISSING — check edit' })"
+      "PowerShell($r = Invoke-WebRequest -Uri \"http://localhost:3000/\" -UseBasicParsing; \"Status: $\\($r.StatusCode\\)\"; \"Size: $\\($r.Content.Length\\) bytes\"; if \\($r.Content -match 'sampleLuma'\\) { 'OK — brightness detection code present' } else { 'MISSING — check edit' })",
+      "Bash(wc *)",
+      "Bash(awk '/<style>/,/<\\\\/style>/' \"C:/Users/Sber/systemco-site/index.html\")",
+      "Bash(awk '/<script>/,/<\\\\/script>/' \"C:/Users/Sber/systemco-site/index.html\")"
     ]
   }
 }
