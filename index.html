@@ -267,7 +267,9 @@
       position: absolute; inset: 0; z-index: 1;
       background:
         radial-gradient(ellipse 70% 55% at 18% 85%, rgba(10, 132, 255, 0.13) 0%, transparent 65%),
-        linear-gradient(160deg, rgba(10,10,15,0.88) 0%, rgba(10,10,15,0.35) 55%, rgba(10,10,15,0.72) 100%);
+        /* Bottom-left scrim keeps the headline/sub/desc legible over the bright server photo */
+        radial-gradient(ellipse 85% 65% at 12% 92%, rgba(7,7,12,0.85) 0%, transparent 60%),
+        linear-gradient(160deg, rgba(10,10,15,0.88) 0%, rgba(10,10,15,0.35) 45%, rgba(10,10,15,0.55) 70%, rgba(7,7,12,0.9) 100%);
     }
 
     #hero-canvas {
@@ -340,17 +342,19 @@
 
     .hero-sub {
       font-size: clamp(0.95rem, 1.8vw, 1.2rem);
-      font-weight: 500; color: var(--text-2);
+      font-weight: 600; color: #C7C7E0;
       letter-spacing: 0.04em; text-transform: uppercase;
       margin-bottom: 0.85rem;
+      text-shadow: 0 1px 12px rgba(7,7,12,0.75);
     }
 
     .hero-desc {
       font-size: clamp(0.9rem, 1.4vw, 1.05rem);
-      color: var(--text-3);
+      color: #A6A6C4;
       line-height: 1.68;
       max-width: 400px;
       margin-bottom: 2.5rem;
+      text-shadow: 0 1px 12px rgba(7,7,12,0.7);
     }
 
     .hero-btns { display: flex; align-items: center; gap: 0.9rem; flex-wrap: wrap; }
@@ -1812,7 +1816,7 @@
           <h2 class="s-heading" id="gpu-heading">Техническая<br>поддержка и поставка GPU</h2>
           <p class="gpu-desc">Полный цикл поддержки ЦОД и поставка серверных решений для высокопроизводительных вычислений</p>
           <a href="#news" class="btn btn-accent btn-hero">
-            Ссылка на новость
+            Смотреть новости
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M5 12h14M12 5l7 7-7 7"/>
             </svg>
@@ -1995,7 +1999,7 @@
 <footer role="contentinfo">
   <div class="footer-in">
     <div class="footer-logo">SYSTEM<span>CO</span></div>
-    <div class="footer-copy">© 2024 ООО «СИСТЕМКО». Все права защищены.</div>
+    <div class="footer-copy">© 2026 ООО «СИСТЕМКО». Все права защищены.</div>
     <nav class="footer-links" aria-label="Юридические ссылки">
       <a href="#">Политика конфиденциальности</a>
       <a href="#">Условия использования</a>
