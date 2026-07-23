@@ -38,8 +38,8 @@
       --shadow-glow:  0 18px 40px -14px rgba(10, 132, 255, 0.35);
       --ease:         cubic-bezier(0.16, 1, 0.3, 1);
       --ease-fast:    cubic-bezier(0.32, 0.72, 0, 1);
-      --font:         'Manrope', sans-serif;
-      --font-display: 'Montserrat', sans-serif;
+      --font:         'Montserrat', Arial, sans-serif;
+      --font-display: 'Prosto One', Arial, sans-serif;
       --r-sm:  10px;
       --r-md:  18px;
       --r-lg:  24px;
@@ -63,6 +63,9 @@
       text-rendering: optimizeLegibility;
       font-feature-settings: "kern", "liga", "calt";
     }
+
+    h1, h2, h3, h4 { font-family: var(--font-display); }
+    body, p, span, a, li { font-family: var(--font); }
 
     /* Accessible keyboard focus — visible ring on any interactive element */
     a:focus-visible,

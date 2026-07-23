@@ -24,7 +24,8 @@
       "WebFetch(domain:systemco-site.vercel.app)",
       "Bash(git commit -m 'Hero heading: lighter font-weight 700, adjusted letter-spacing *)",
       "Bash(git commit -m 'Hero h1 font update *)",
-      "Bash(git commit -m 'Hero h1: Prosto One font *)"
+      "Bash(git commit -m 'Hero h1: Prosto One font *)",
+      "Bash(git commit -m 'Apply Prosto One to headings, Montserrat to body *)"
     ]
   }
 }
