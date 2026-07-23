@@ -18,7 +18,11 @@
       "Bash(npm --version)",
       "PowerShell(npm *)",
       "PowerShell(Set-Location *)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "WebFetch(domain:systemco-site.vercel.app)",
+      "Bash(git commit -m 'Hero heading: lighter font-weight 700, adjusted letter-spacing *)"
     ]
   }
 }
