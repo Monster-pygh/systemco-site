@@ -22,7 +22,8 @@
       "Bash(git commit -m ' *)",
       "Bash(git push *)",
       "WebFetch(domain:systemco-site.vercel.app)",
-      "Bash(git commit -m 'Hero heading: lighter font-weight 700, adjusted letter-spacing *)"
+      "Bash(git commit -m 'Hero heading: lighter font-weight 700, adjusted letter-spacing *)",
+      "Bash(git commit -m 'Hero h1 font update *)"
     ]
   }
 }
